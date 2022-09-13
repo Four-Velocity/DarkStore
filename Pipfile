@@ -10,6 +10,10 @@ tortoise-orm = "~=0.19"
 aerich = "~=0.6"
 
 [dev-packages]
+black = "*"
+isort = "*"
+flake8 = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.10"
