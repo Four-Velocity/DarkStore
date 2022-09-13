@@ -7,6 +7,7 @@ name = "pypi"
 fastapi = "~=0.83"
 uvicorn = "~=0.18"
 tortoise-orm = "~=0.19"
+aerich = "~=0.6"
 
 [dev-packages]
 
