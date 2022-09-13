@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+fastapi = "~=0.83"
+uvicorn = "~=0.18"
+tortoise-orm = "~=0.19"
 
 [dev-packages]
 
