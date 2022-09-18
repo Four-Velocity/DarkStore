@@ -1,10 +1,7 @@
-__all__ = [
-    "User",
-    "ProfileCurrency"
-]
+__all__ = ["User", "ProfileCurrency"]
 
-from tortoise.models import Model
 from tortoise import fields
+from tortoise.models import Model
 
 
 class User(Model):
@@ -20,7 +17,9 @@ class User(Model):
 
 
 class ProfileCurrency(Model):
-    user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField("models.User", related_name="currencies")
+    user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
+        "models.User", related_name="currencies"
+    )
     name = fields.CharField(max_length=5)
     amount = fields.DecimalField(max_digits=22, decimal_places=11)
 
