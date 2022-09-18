@@ -13,7 +13,7 @@ from app.utils import *
 from app.config import get_settings
 
 settings = get_settings()
-app = FastAPI()
+app = FastAPI(title="DarkStore Crypto Portfolio", docs_url="/", redoc_url=None)
 
 
 @app.get("/profile", response_model=list[ProfileCurrencyPydantic], tags=["Basic Profile"])
