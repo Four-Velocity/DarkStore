@@ -87,7 +87,7 @@ async def wipe():
     await User.all().delete()
 
 
-@app.post("/populate", status_code=status.HTTP_201_CREATED, responses={status.HTTP_500_INTERNAL_SERVER_ERROR: {"model": Error}})
+@app.post("/populate", status_code=status.HTTP_204_NO_CONTENT, responses={status.HTTP_500_INTERNAL_SERVER_ERROR: {"model": Error}}, tags=["Administration"])
 async def populate():
     try:
         await populate_db()

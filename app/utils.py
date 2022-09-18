@@ -15,6 +15,8 @@ from decimal import Decimal
 
 from app.models import ProfileCurrency, User
 
+from tortoise import Tortoise
+
 
 def get_ytd_borders() -> tuple[int, int]:
     year_start_timestamp = round(dt.datetime(dt.date.today().year, 1, 1).timestamp())
@@ -51,10 +53,11 @@ def get_profile_min_max(values: Iterable[Iterable[Decimal]]) -> tuple[tuple[Deci
 
 
 async def populate_db():
+    await Tortoise.generate_schemas()
     users = ({"full_name": "John Doe"}, {"full_name": "admin"})
     currencies = (
         {"name": "BTC", "amount": Decimal(0.122)},
-        {"name": "ETC", "amount": Decimal(1)}
+        {"name": "ETH", "amount": Decimal(1)}
     )
     if not len(await User.all()):
         for user in users:
